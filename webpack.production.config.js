@@ -3,10 +3,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-  entry: `${__dirname}/app/main.jsx`,
+  entry: `${__dirname}/app/main.js`,
 
   output: {
-    path: `${__dirname}/build`,
+    path: `${__dirname}/public`,
     filename: '[name]-[hash].js'
   },
 
@@ -14,20 +14,9 @@ module.exports = {
     loaders: [
       { test: /\.json$/, loader: 'json' },
       { test: /\.jsx*$/, exclude: /node_modules/, loader: 'babel' },
-      { test: /\.css$/, loader: ExtractTextPlugin.extract('style', 'css?modules!postcss') },
-      {
-        test: /\.(jpe?g|png|gif|svg)$/i,
-        loaders: [
-          'file?hash=sha512&digest=hex&name=[hash].[ext]',
-          'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false'
-        ]
-      }
+      { test: /\.scss$/, loader: ExtractTextPlugin.extract('css!sass') },
     ]
   },
-
-  postcss: [
-    require('autoprefixer')
-  ],
 
   plugins: [
     new BannerPlugin('Copyright Matthew Glover 2016'),

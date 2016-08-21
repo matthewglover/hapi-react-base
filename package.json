@@ -6,18 +6,18 @@
     "node": "6"
   },
   "scripts": {
-    "build": "rm -rf ./build && NODE_ENV=production webpack --config ./webpack.production.config.js --progress",
+    "clean": "rimraf './public/*.+(js|css|html)'",
+    "build": "npm run clean && NODE_ENV=production webpack --config ./webpack.production.config.js --progress",
     "dev:app": "webpack-dev-server --progress",
     "dev:server": "NODE_ENV=development nodemon server",
     "lint": "eslint './+(server|test_server|app|test_app)/**/*.+(js|jsx)'",
     "test:server": "ava --verbose './test_server/**/*.test.js'",
-    "test:app": "ava --verbose --require babel-register './test_app/**/*.test.js  '",
+    "test:app": "ava --verbose --require babel-register './test_app/**/*.test.js'",
     "test": "npm run lint && npm run test:server"
   },
   "author": "Matt Glover (https://github.com/matthewglover)",
   "license": "MIT",
   "devDependencies": {
-    "autoprefixer": "^6.4.0",
     "ava": "^0.16.0",
     "babel-core": "^6.13.2",
     "babel-eslint": "^6.1.2",
@@ -34,13 +34,12 @@
     "eslint-plugin-react": "^6.1.2",
     "extract-text-webpack-plugin": "^1.0.1",
     "faucet": "0.0.1",
-    "file-loader": "^0.9.0",
     "html-webpack-plugin": "^2.22.0",
-    "image-webpack-loader": "^2.0.0",
+    "node-sass": "^3.8.0",
     "nodemon": "^1.10.2",
-    "postcss-loader": "^0.9.1",
     "react-addons-test-utils": "^15.3.1",
     "react-transform-hmr": "^1.0.4",
+    "sass-loader": "^4.0.0",
     "style-loader": "^0.13.1",
     "webpack": "^1.13.1",
     "webpack-dev-server": "^1.14.1"

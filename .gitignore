@@ -38,3 +38,7 @@ jspm_packages
 
 # Environment variables
 *.env
+
+public/*.html
+public/*.css
+public/*.js

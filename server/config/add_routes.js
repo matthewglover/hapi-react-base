@@ -3,7 +3,7 @@ const STATIC_ROUTE_HANDLER = {
   path: '/{param*}',
   handler: {
     directory: {
-      path: './build',
+      path: './public',
       listing: true,
     },
   },

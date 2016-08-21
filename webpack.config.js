@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   devtool: 'eval-source-map',
 
-  entry: `${__dirname}/app/main.jsx`,
+  entry: `${__dirname}/app/main.js`,
 
   output: {
     path: `${__dirname}/build`,
@@ -14,21 +14,10 @@ module.exports = {
   module: {
     loaders: [
       { test: /\.json$/, loader: 'json' },
-      { test: /\.jsx*$/, exclude: /node_modules/, loader: 'babel' },
-      { test: /\.css$/, loader: 'style!css?modules!postcss' },
-      {
-        test: /\.(jpe?g|png|gif|svg)$/i,
-        loaders: [
-          'file?hash=sha512&digest=hex&name=[hash].[ext]',
-          'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false'
-        ]
-      }
+      { test: /\.js$/, exclude: /node_modules/, loader: 'babel' },
+      { test: /\.scss$/, loader: 'style!css!sass' },
     ]
   },
-
-  postcss: [
-    require('autoprefixer')
-  ],
 
   plugins: [
     new BannerPlugin('Copyright Matthew Glover 2016'),
