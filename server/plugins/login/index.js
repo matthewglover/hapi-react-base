@@ -1,8 +1,16 @@
-const fbLogin = require('./fb_login_route');
-const fbAuthenticate = require('./fb_authenticate_route');
+const fbLogin = require('./fb_login');
+const fbAuthenticate = require('./fb_authenticate');
+
+const config = {
+  loginPath: '/fb-login',
+  authPath: '/fb-auth',
+  baseUrl: process.env.BASE_URL,
+  clientId: process.env.FB_CLIENT_ID,
+  clientSecret: process.env.FB_CLIENT_SECRET,
+};
 
 const register = (server, options, next) => {
-  server.route([fbLogin, fbAuthenticate]);
+  server.route([fbLogin(config), fbAuthenticate(config)]);
   next();
 };
 
