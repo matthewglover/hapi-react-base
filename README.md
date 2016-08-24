@@ -1,4 +1,6 @@
 
+[![Build Status](https://travis-ci.org/matthewglover/hapi-react-base.svg?branch=master)](https://travis-ci.org/matthewglover/hapi-react-base) [![Coverage Status](https://coveralls.io/repos/github/matthewglover/hapi-react-base/badge.svg?branch=master)](https://coveralls.io/github/matthewglover/hapi-react-base?branch=master)
+
 ## Webpack
 
 This uses a minimal Webpack setup, which only does two things:
