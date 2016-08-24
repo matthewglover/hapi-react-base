@@ -16,7 +16,7 @@
     "test-cover:server": "nyc npm run test:server",
     "test:app": "ava --verbose --require babel-register './test_app/**/*.test.js'",
     "test-cover:app": "nyc npm run test:app",
-    "test": "npm run lint && npm run test-cover:server && npm run test-cover:app"
+    "test": "npm run lint && npm run test-cover:server && npm run test:app"
   },
   "author": "Matt Glover (https://github.com/matthewglover)",
   "license": "MIT",
