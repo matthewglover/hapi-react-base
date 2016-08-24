@@ -13,7 +13,7 @@
     "lint": "eslint './+(server|test_server|app|test_app)/**/*.+(js|jsx)'",
     "test:server": "NODE_ENV=test ava --verbose './test_server/**/*.test.js'",
     "test:app": "ava --verbose --require babel-register './test_app/**/*.test.js'",
-    "test": "npm run lint && npm run test:server"
+    "test": "npm run lint && npm run test:server && npm run test:app"
   },
   "author": "Matt Glover (https://github.com/matthewglover)",
   "license": "MIT",
