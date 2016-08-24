@@ -6,14 +6,16 @@
     "node": "6"
   },
   "scripts": {
+    "report": "nyc report --reporter=html",
     "clean": "rimraf './public/*.+(js|css|html)'",
     "build": "npm run clean && NODE_ENV=production webpack --config ./webpack.production.config.js --progress",
     "dev:app": "webpack-dev-server --progress",
     "dev:server": "NODE_ENV=development nodemon server",
     "lint": "eslint './+(server|test_server|app|test_app)/**/*.+(js|jsx)'",
     "test:server": "NODE_ENV=test ava --verbose './test_server/**/*.test.js'",
+    "test-cover:server": "nyc npm run test:server",
     "test:app": "ava --verbose --require babel-register './test_app/**/*.test.js'",
-    "test": "npm run lint && npm run test:server && npm run test:app"
+    "test": "npm run lint && npm run test-cover:server && npm run test:app"
   },
   "author": "Matt Glover (https://github.com/matthewglover)",
   "license": "MIT",
@@ -39,6 +41,7 @@
     "nock": "^8.0.0",
     "node-sass": "^3.8.0",
     "nodemon": "^1.10.2",
+    "nyc": "^8.1.0",
     "react-addons-test-utils": "^15.3.1",
     "react-transform-hmr": "^1.0.4",
     "sass-loader": "^4.0.0",
