@@ -1,16 +1,19 @@
+const compose = require('../../util/compose');
+const flatMap = require('../../util/flat_map');
 const fbLogin = require('./fb_login');
 const fbAuthenticate = require('./fb_authenticate');
 
-const config = {
-  loginPath: '/fb-login',
-  authPath: '/fb-auth',
-  baseUrl: process.env.BASE_URL,
-  clientId: process.env.FB_CLIENT_ID,
-  clientSecret: process.env.FB_CLIENT_SECRET,
+const configRoutes = config => {
+  switch (config.provider) {
+    case 'facebook':
+      return [fbLogin(config), fbAuthenticate(config)];
+    default :
+      return [];
+  }
 };
 
-const register = (server, options, next) => {
-  server.route([fbLogin(config), fbAuthenticate(config)]);
+const register = (server, { configs }, next) => {
+  compose(server.route.bind(server), flatMap(configRoutes))(configs);
   next();
 };
 

@@ -4,8 +4,10 @@ const USER_TOKEN = {
   expires_in: 'timeinsecondstoexpiry',
 };
 
-// TODO: Replace with more accurate USER_DETAILS data
-const USER_DETAILS = { name: 'Matthew Glover' };
+const USER_DETAILS = {
+  name: 'Matthew Glover',
+  id: 'facebookid',
+};
 
 const AWFUL_ERROR = {
   message: 'something awful happened',
