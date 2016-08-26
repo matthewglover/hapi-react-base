@@ -2,7 +2,7 @@ const { BannerPlugin, HotModuleReplacementPlugin } = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  devtool: 'eval-source-map',
+  devtool: 'source-map',
 
   entry: `${__dirname}/app/main.js`,
 
@@ -25,6 +25,7 @@ module.exports = {
     new HotModuleReplacementPlugin()
   ],
 
+  // Uses default port 8080
   devServer: {
     contentBase: './public',
     colors: true,

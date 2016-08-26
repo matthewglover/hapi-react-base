@@ -12,6 +12,8 @@ The Sass code should only be included once at the top of main.js, so that all sa
 Webpack could be used to transpile/optimise images, use css modules, use post-css. The reason against is that they make writing tests more complex, as the tests would need to be run after all the css and images had been compiled with Webpack. Whilst this can be achieved, using karma with jasmine or mocha, rather than a more streamlined testing setup with AVA.
 
 
+
+
 ## Resources
 
 ### Webpack
@@ -23,3 +25,7 @@ Webpack could be used to transpile/optimise images, use css modules, use post-cs
 ### Git commit messages
 
 - [Seven rules of git commit messages](http://chris.beams.io/posts/git-commit/)
+
+### Client-side authentication
+
+- https://auth0.com/blog/secure-your-react-and-redux-app-with-jwt-authentication/
